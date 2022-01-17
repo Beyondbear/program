@@ -1,7 +1,10 @@
 <template>
     <div class="container">
+        <error-tip :errorCode="errorCode" v-if="errorCode"></error-tip>
+        <div v-else>
         <day-card :data='dayData'></day-card>
         <day-list :data='dayData'></day-list>
+        </div>
     </div>
 </template>
 
@@ -20,7 +23,8 @@ export default {
             getData(store,field,getNowDate(field))
         })
         return {
-            dayData:computed(()=>store.state.dayData)
+            dayData:computed(()=>store.state.dayData),
+            errorCode:computed(()=>store.state.errorCode)
         }
     },
     components:{
