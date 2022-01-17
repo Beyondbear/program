@@ -1,17 +1,17 @@
-import {getIconData} from '@/libs/utils.js'
+import {getIconDate} from '@/libs/utils.js'
 export default[
     {
-        iconText:getIconData('day'),
+        iconText:getIconDate('day'),
         tabText:'当天',
         path:'/'
     },
     {
-        iconText:getIconData('month'),
+        iconText:getIconDate('month'),
         tabText:'近期',
         path:'/month'
     },
     {
-        iconText:getIconData('year'),
+        iconText:getIconDate('year'),
         tabText:'当年',
         path:'/year'
     }

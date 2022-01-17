@@ -1,9 +1,0 @@
-module.exports={
-    devServer:{
-        overlay:{
-            warnning:false,
-            errors:false
-        }
-    },
-    lintOnSave:false
-}

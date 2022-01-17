@@ -1,19 +1,35 @@
 <template>
     <div class="container">
-        Month page
-    </div>
+            <card-list :data="monthData"></card-list>
+        </div>
 </template>
 
 <script>
-export default {
-    setup () {
-        
+import { computed, onMounted } from 'vue'
+import getData from '@/services'
+import { useStore } from 'vuex'
+import { getNowDate } from '@/libs/utils'
+import CardList from '@/components/MonthPage/List'
 
-        return {}
+export default {
+    setup(){
+        const store = useStore()
+
+        onMounted( () => {
+            const field = store.state.field
+            getData(store,field,getNowDate(field))
+        })
+
+        return {
+            monthData:computed(() => store.state.monthData)
+        }
+    },
+    components:{
+        CardList,
     }
 }
 </script>
 
 <style lang="less" scoped>
-
+    
 </style>
